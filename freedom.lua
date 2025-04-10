@@ -1338,7 +1338,8 @@ end
 ----------
 
 template = {
-    name = getName(TemplateName, Verison),
+    --name = getName(TemplateName, Verison),
+    name = 'Freedom 2.1.1',
     description = getDescription(TemplateName, Verison, Timer),
     minSize = 72,
     maxSize = 72,
