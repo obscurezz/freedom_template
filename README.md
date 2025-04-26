@@ -17,7 +17,9 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 - Merchant: orb, scroll, wand or talisman, item value 200-400, total value 4000
 - Merchant: artifact, boots, banner, relic or talisman, item value 200-600, total value 5400
 - Mage tower: T1 spells
-> Bonus: T2 town in this zone also contains *potion of death call*.
+> Bonus: T2 town in this zone also contains *1 potion of death call*.
+
+> Bonus: T2 town guard in this zone also contains *1 scroll of speed*.
 
 ### White, green, cyan, grey: small side zones.
 #### Content:
@@ -30,7 +32,7 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 - Mercenary: race T2 units
 > Bonus: merchant in this zone also contains hero skill permanent potions.
 
-> Bonus: one of the stacks in this zone contains *potion of mind rejuvenation*.
+> Bonus: one of the stacks in this zone contains *1 potion of mind rejuvenation*.
 
 ### Red, black: big corner zones.
 #### Content:
@@ -69,6 +71,7 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 ##### one of:
 - Leader Greenskin or Marsh: contains permanent potion, item value 450-650, total value 650
 - Leader Barbarian: contains permanent potion, item value 450-650, total value 650
+> Bonus: Also contains *1 scroll of speed*.
 
 ### From players' starting zones to central zone:
 - Leader Dragon: contains artifact or talisman, item value 700-1000, total value 1000
@@ -78,6 +81,7 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 
 ### From small side zones to big corner zones:
 - Leader Dragon: contains boots, item value 800-1100, total value 1100
+> Bonus: Also contains *1 scroll of speed*.
 
 ### From big corner zones to central zone:
 - Leader Dragon: contains relic, item value 700-1000, total value 1000
