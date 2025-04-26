@@ -7,7 +7,7 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 
 
 ## Zones are:
-### Red, black: players' starting zones.
+### Blue, yellow: players' starting zones.
 #### Content:
 - T1 town: artifact, item value 300-675, total value 675
 - T2 town: banner or jewel, item value 300-500, total value 500
@@ -31,7 +31,7 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 
 > Bonus: one of the stacks in this zone contains potion of mind rejuvenation.
 
-### Blue, yellow: big corner zones.
+### Red, black: big corner zones.
 #### Content:
 - T2 town: permanent potion, item value 600-750, total value 750
 - T4 town: banner, item value 1300-1500, total value 1500
