@@ -10,35 +10,37 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 ### Blue, yellow: players' starting zones.
 #### Content:
 - T1 town: artifact, item value 300-675, total value 675
-- T2 town: banner or jewel, item value 300-500, total value 500
-- Ruins: jewel, item value 300-500
-- Ruins: permanent potion, item value 300-500
-- Ruins: artifact, item value 600-800
+- T2 town: banner or relic, item value 300-500, total value 500
+- Ruins: relic, item value 300-500, 300-350 gold
+- Ruins: permanent potion, item value 300-500, 300-350 gold
+- Ruins: artifact, item value 600-800, 370-410 gold
 - Merchant: orb, scroll, wand or talisman, item value 200-400, total value 4000
-- Merchant: artifact, boots, banner, jewel or talisman, item value 200-600, total value 5400
+- Merchant: artifact, boots, banner, relic or talisman, item value 200-600, total value 5400
 - Mage tower: T1 spells
+> Bonus: T2 town in this zone also contains *potion of death call*.
 
 ### White, green, cyan, grey: small side zones.
 #### Content:
-- T3 town: banner, boots or jewel, item value 500-800, total value 800
-- Ruins: banner, boots or jewel, item value 500-800
-- Ruins: banner, boots or jewel, item value 500-800
+- T3 town: banner, boots or relic, item value 500-800, total value 800
+- Ruins: banner, boots or relic, item value 500-800, 460-510 gold
+- Ruins: banner, boots or relic, item value 500-800, 460-510 gold
 - Merchant: permanent potion, item value 400-700, total value 3500
 ##### one of:
 - Resource market: 3000 gold, 1000 each mana
 - Mercenary: race T2 units
 > Bonus: merchant in this zone also contains hero skill permanent potions.
 
-> Bonus: one of the stacks in this zone contains potion of mind rejuvenation.
+> Bonus: one of the stacks in this zone contains *potion of mind rejuvenation*.
 
 ### Red, black: big corner zones.
 #### Content:
 - T2 town: permanent potion, item value 600-750, total value 750
 - T4 town: banner, item value 1300-1500, total value 1500
-- Ruins: *big orb of sorcery*
-- Ruins: permanent potion, item value 900-1200
-- Ruins: artifact, item value 950-1250
-- Merchant: artifact, jewel, banner or talisman, item value 700-900, total value 7200
+- Ruins: *big orb of sorcery*, 300-350 gold
+- Ruins: permanent potion, item value 900-1200, 300-350 gold
+- Ruins: artifact, item value 950-1250, 320-370 gold
+- Ruins: relic, item value 1000-1200, 320-370 gold
+- Merchant: artifact, relic, banner or talisman, item value 700-900, total value 7200
 - Mage tower: T1-T2 spells
 - Trainer
 - Mercenary: different random units
@@ -48,13 +50,13 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 #### Content:
 - T3 town: potion permanent, item value 600-750, total value 750
 - T5 town: artifact, item value 1750-3000, total value 3000
-- Ruins: *ambassador's potion*
-- Ruins: artifact, item value 1100-1400
-- Ruins: banner, item value 1500
-- Ruins: jewel, item value 1000-1200
-- Ruins: *any of control artifacts*
+- Ruins: *ambassador's potion*, gold 150-200
+- Ruins: artifact, item value 1100-1400, gold 320-370
+- Ruins: banner, item value 1500, gold 320-370
+- Ruins: relic, item value 1000-1200, gold 320-370
+- Ruins: *any of control artifacts*, gold 150-200
 - Merchant: scroll, wand, item value 200-5500, total value 5500
-- Merchant: artifact, boots, banner or jewel, item value 500-900, total value 7200
+- Merchant: artifact, boots, banner or relic, item value 500-900, total value 7200
 - Mage tower: T1-T3 spells
 > Bonus: one of the stacks in this zone contains permanent potion of 600-750 value.
 
@@ -78,4 +80,4 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 - Leader Dragon: contains boots, item value 800-1100, total value 1100
 
 ### From big corner zones to central zone:
-- Leader Dragon: contains jewel, item value 700-1000, total value 1000
+- Leader Dragon: contains relic, item value 700-1000, total value 1000
