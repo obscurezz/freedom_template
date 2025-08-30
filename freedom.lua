@@ -1499,8 +1499,8 @@ function getTreasureSplitZone(zoneId, zoneSize, race1, race2)
     zoneContent['mines'] = getSplitZoneMines(race1, race2)
 
     zoneContent['ruins'] = {
-        -- getRuins(5, {min=320, max=370}, {Item.Banner}, 1200, 1600, 1, {}),
-        getRuins(5, {min=300, max=350}, {Item.PotionPermanent}, 900, 1200, 1, {}),
+        getRuins(5, {min=320, max=370}, {Item.Banner}, 1200, 1600, 1, {}),
+        -- getRuins(5, {min=300, max=350}, {Item.PotionPermanent}, 900, 1200, 1, {}),
         -- getRuins(5, {min=150, max=200}, {}, 0, 0, 0, {{id = 'g001ig0522', min = 1, max = 1}}),
         getRuins(5, {min=320, max=370}, {Item.Armor, Item.Weapon}, 1100, 1400, 1, {}),
     }

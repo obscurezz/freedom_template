@@ -1,5 +1,5 @@
 # Freedom
-### Current version: 2.1.2
+### Current version: 2.2.1
 RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 
 ### Zone placing:
@@ -26,45 +26,51 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 - T3 town: banner, boots or relic, item value 500-800, total value 800
 - Ruins: banner, boots or relic, item value 500-800, 460-510 gold
 - Ruins: banner, boots or relic, item value 500-800, 460-510 gold
+- Ruins: artifact, item value 600-900, 300-400 gold
 - Merchant: permanent potion, item value 400-700, total value 3500
-##### one of:
-- Resource market: 3000 gold, 1000 each mana
-- Mercenary: race T2 units
 > Bonus: merchant in this zone also contains hero skill permanent potions.
 
 > Bonus: one of the stacks in this zone contains *1 potion of mind rejuvenation*.
 
 ### Red, black: big corner zones.
 #### Content:
-- T2 town: permanent potion, item value 600-750, total value 750
-- T4 town: banner, item value 1300-1500, total value 1500
-- Ruins: *big orb of sorcery*, 300-350 gold
-- Ruins: permanent potion, item value 900-1200, 300-350 gold
-- Ruins: artifact, item value 950-1250, 320-370 gold
+- T5 town: banner, item value 1500-2500, total value 2500
+- Ruins: artifact, item value 1000-1500, 320-370 gold
 - Ruins: relic, item value 1000-1200, 320-370 gold
-- Merchant: artifact, relic, banner or talisman, item value 700-900, total value 7200
-- Mage tower: T1-T2 spells
-- Trainer
-- Mercenary: different random units
-> Bonus: merchant in this zone also contains 3 permanent auras each of 700 value.
-
-### Pink: central zone.
-#### Content:
-- T3 town: potion permanent, item value 600-750, total value 750
-- T5 town: artifact, item value 1750-3000, total value 3000
-- Ruins: *ambassador's potion*, gold 150-200
-- Ruins: artifact, item value 1100-1400, gold 320-370
-- Ruins: banner, item value 1500, gold 320-370
-- Ruins: relic, item value 1000-1200, gold 320-370
 - Ruins: *any of control artifacts*, gold 150-200
+- Merchant: artifact, relic, banner or talisman, item value 700-900, total value 7200
+- Merchant: boots, wand or orb, item value 500-1000, total value 6000
+- Mage tower: T1-T3 spells
+- Mercenary: different random units
+
+> Bonus: artifact merchant in this zone also contains 3 permanent auras each of 700 value.
+
+> Bonus: both merchants in this zone also contain 2 high tier items
+
+### Pink-greengrass: central zone splits with town.
+#### Content:
+- T4 town: artifact, item value 1400-2000, total value 2000
+- Ruins: *ambassador's potion*, gold 150-200
+- Ruins: relic, item value 1000-1200, gold 320-370
+##### one of:
 - Merchant: scroll, wand, item value 200-5500, total value 5500
 - Merchant: artifact, boots, banner or relic, item value 500-900, total value 7200
-- Mage tower: T1-T3 spells
-> Bonus: one of the stacks in this zone contains permanent potion of 600-750 value.
+
+> Bonus: one of these zones contains rod placer under player's command.
 
 > Bonus: merchant with scrolls and wands also contains *1 scroll of incorruptibility*, *1 scroll of swiftness*, *1 scroll of daylight*, *1 scroll of twilight*.
 
 > Bonus: merchant with items also contains *1 talisman of thunder*, *1 talisman of hellfire*, *1 scroll of neutral summoning IV*, *1 orb of polymorph*, *1 orb of mass deceleration*.
+
+### Darkblue-orange: central zone splits without town.
+#### Content:
+
+- Ruins: banner, item value 1200-1600, gold 320-370
+- Ruins: artifact, item value 1100-1400, gold 320-370
+- Mage tower: T1-T2 spells
+- Trainer
+
+> Bonus: one of the stacks in this zone contains permanent potion of 600-750 value.
 
 ## Path guards:
 ### From players' starting zones to small side zones:
@@ -74,14 +80,16 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 > Bonus: Also contains *1 scroll of speed*.
 
 ### From players' starting zones to central zone:
-- Leader Dragon: contains artifact or talisman, item value 700-1000, total value 1000
+- Leader Monster: contains artifact or talisman, item value 700-1000, total value 1000
+
+> This guard is optional and can be disabled.
 
 ### From small side zones to central zone:
 - Leader Dragon: contains orb or talisman, item value 700-1000, total value 2000
 
 ### From small side zones to big corner zones:
-- Leader Dragon: contains boots, item value 800-1100, total value 1100
+- Leader Dragon: contains artifact, item value 1000-1400, total value 1400
 > Bonus: Also contains *1 scroll of speed*.
 
 ### From big corner zones to central zone:
-- Leader Dragon: contains relic, item value 700-1000, total value 1000
+- Leader Monster: contains relic, item value 700-1000, total value 1000
