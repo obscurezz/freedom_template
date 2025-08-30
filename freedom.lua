@@ -1,12 +1,17 @@
 -- template: freedom 2
 -- author: obscure
 
--- 0 1 2
--- 7 8 3
--- 6 5 4
+
+local templateVariables = {
+    {
+        name = "SMNS_INFO_TURN",
+        value = 10
+    }
+}
+
 
 local TemplateName = 'Freedom'
-local Verison = '2.1.2'
+local Verison = '2.2.1'
 local Timer = 'First turn: 600, second turn: 360, sixth and further turns: 420.'
 
 function getName(name, version)
@@ -14,7 +19,7 @@ function getName(name, version)
 end
 
 function getDescription(name, version, timer)
-    return name .. ' ' .. version .. 'S by obscure, SMNS2, 72x72, 2 players.\nPink zone center, Blue opposite Yellow, Red Opposite Black.\nTimer is: ' .. timer
+    return name .. ' ' .. version .. ' by obscure, SMNS2, 72x72, 2 players.\nPink zone center, Blue opposite Yellow, Red Opposite Black.\nTimer is: ' .. timer
 end
 
 function shuffleTable(t)
@@ -41,6 +46,7 @@ local high_level_buff_scrolls = {'g001ig0249', 'g001ig0254', 'g001ig0193', 'g001
 local high_level_debuff_scrolls = {'g000ig5050', 'g000ig5049', 'g001ig0577', 'g001ig0580', 'g001ig0576', 'g001ig0578', 'g001ig0579', 'g000ig5048', 'g001ig0164', 'g000ig5070', 'g000ig5028', 'g000ig5104', 'g000ig5118', 'g001ig0253', 'g000ig5069', 'g000ig5067'}
 local high_level_macro_scrolls = {'g000ig5008', 'g000ig5047', 'g000ig5046', 'g000ig5066', 'g000ig5103', 'g000ig5088', 'g001ig0569', 'g000ig5074', 'g000ig5068', 'g000ig5052', 'g001ig0570'}
 local control = {'g000ig3018', 'g000ig3021', 'g000ig3015', 'g001ig0414', 'g000ig3016'}
+local very_high_tier = {'g000ig2005', 'g001ig0604', 'g001ig0039', 'g001ig0043', 'g002ig0011', 'g001ig0179', 'g001ig0410', 'g002ig0014', 'g000ig3007', 'g001ig0102', 'g001ig0488', 'g001ig0412', 'g002ig0010', 'g002ig0013', 'g002ig0012', 'g002ig0015', 'g000ig7010', 'g001ig0116', 'g001ig0291', 'g001ig0373', 'g001ig0290', 'g002ig0016', 'g001ig0366', 'g000ig1015', 'g000ig1017', 'g000ig1016', 'g001ig0153'}
 -- end
 ----------
 
@@ -90,7 +96,7 @@ function getExacts(Type)
             { id = orbs_of_protection[math.random(#orbs_of_protection)], min = 1, max = 1 },
             { id = low_level_potions[math.random(#low_level_potions)], min = 1, max = 1 },
             { id = low_level_buff_scrolls[math.random(#low_level_buff_scrolls)], min = 1, max = 1 },
-            { id = low_level_macro_scrolls[math.random(#low_level_macro_scrolls)], min = 1, max = 1 },
+            --{ id = low_level_macro_scrolls[math.random(#low_level_macro_scrolls)], min = 1, max = 1 },
         }
 
     elseif Type == 't2MerchantExacts' then
@@ -99,17 +105,17 @@ function getExacts(Type)
             { id = 'g000ig0006', min = 2, max = 2 },
             { id = orbs_of_protection[math.random(#orbs_of_protection)], min = 1, max = 1 },
             { id = low_level_potions[math.random(#low_level_potions)], min = 1, max = 1 },
-            { id = low_level_macro_scrolls[math.random(#low_level_macro_scrolls)], min = 1, max = 1 },
+            --{ id = low_level_macro_scrolls[math.random(#low_level_macro_scrolls)], min = 1, max = 1 },
             { id = resistance_potions[math.random(#resistance_potions)], min = 1, max = 1 },
         }
 
     elseif Type == 't3MerchantExacts' then
         return {
-            { id = 'g000ig0001', min = 2, max = 2 },
+            { id = 'g000ig0001', min = 1, max = 1 },
             { id = 'g000ig0018', min = 2, max = 2 },
             { id = high_level_potions[math.random(#high_level_potions)], min = 1, max = 1 },
             { id = low_level_potions[math.random(#low_level_potions)], min = 1, max = 1 },            
-            { id = high_level_macro_scrolls[math.random(#high_level_macro_scrolls)], min = 1, max = 1 },
+            --{ id = high_level_macro_scrolls[math.random(#high_level_macro_scrolls)], min = 1, max = 1 },
             { id = resistance_potions[math.random(#resistance_potions)], min = 1, max = 1 },
         }
 
@@ -129,8 +135,7 @@ function getExacts(Type)
             { id = 'g000ig0001', min = 2, max = 2 },
             { id = 'g000ig0018', min = 2, max = 2 },
             { id = low_level_potions[math.random(#low_level_potions)], min = 1, max = 1 },
-            { id = high_level_potions[math.random(#high_level_potions)], min = 1, max = 1 },
-            
+            { id = high_level_potions[math.random(#high_level_potions)], min = 1, max = 1 },            
             { id = resistance_potions[math.random(#resistance_potions)], min = 1, max = 1 },            
         }
 
@@ -186,7 +191,7 @@ function getExacts(Type)
         return {
             { id = 'g000ig0006', min = 2, max = 2 },
             { id = 'g000ig0001', min = 1, max = 1 },
-            { id = 'g000ig5009', min = 1, max = 1 },
+            -- { id = 'g000ig5009', min = 1, max = 1 },
             { id = 'g001ig0194', min = 1, max = 1 },
             { id = 'g001ig0530', min = 1, max = 1 },
             { id = low_level_potions[math.random(#low_level_potions)], min = 1, max = 1 },
@@ -207,10 +212,10 @@ function getExacts(Type)
     elseif Type == 't3TownExacts' then
         return {
             { id = 'g000ig0001', min = 2, max = 2 },
-            { id = 'g000ig0006', min = 2, max = 2 },
+            { id = 'g000ig0006', min = 1, max = 1 },
             { id = 'g000ig0005', min = 2, max = 2 },
             { id = 'g000ig5085', min = 1, max = 1 },
-            { id = 'g000ig5030', min = 1, max = 1 },
+            -- { id = 'g000ig5030', min = 1, max = 1 },
             { id = low_level_potions[math.random(#low_level_potions)], min = 1, max = 1 },
             { id = resistance_potions[math.random(#resistance_potions)], min = 1, max = 1 },
             { id = high_level_potions[math.random(#high_level_potions)], min = 1, max = 1 },
@@ -227,7 +232,7 @@ function getExacts(Type)
             { id = 'g001ig0151', min = 1, max = 1 },
         }
 
-    elseif Type == 't4BigExacts' then
+    elseif Type == 't5BigExacts' then
         return {
             { id = 'g000ig0018', min = 2, max = 2 },
             { id = 'g000ig0005', min = 2, max = 2 },
@@ -238,7 +243,7 @@ function getExacts(Type)
             { id = high_level_debuff_scrolls[math.random(#high_level_debuff_scrolls)], min = 1, max = 1 },
         }
 
-    elseif Type == 't4BigGuardExacts' then
+    elseif Type == 't5BigGuardExacts' then
         return {
             { id = 'g001ig0152', min = 1, max = 1 },
             { id = 'g000ig0001', min = 2, max = 2 },
@@ -266,7 +271,7 @@ function getExacts(Type)
             { id = resistance_potions[math.random(#resistance_potions)], min = 1, max = 1 },
         }
 
-    elseif Type == 't5CenterExacts' then
+    elseif Type == 't4CenterExacts' then
         return {
             { id = 'g000ig0018', min = 2, max = 2 },
             { id = 'g000ig0001', min = 2, max = 2 },
@@ -274,17 +279,17 @@ function getExacts(Type)
             { id = low_level_potions[math.random(#low_level_potions)], min = 1, max = 1 },
             { id = high_level_potions[math.random(#high_level_potions)], min = 1, max = 1 },
             { id = high_level_debuff_scrolls[math.random(#high_level_debuff_scrolls)], min = 1, max = 1 },
-            { id = high_level_macro_scrolls[math.random(#high_level_macro_scrolls)], min = 1, max = 1 },
+            --{ id = high_level_macro_scrolls[math.random(#high_level_macro_scrolls)], min = 1, max = 1 },
         }
 
-    elseif Type == 't5CenterGuardExacts' then
+    elseif Type == 't4CenterGuardExacts' then
         return {
             { id = 'g001ig0152', min = 1, max = 1 },
             { id = 'g000ig0006', min = 2, max = 2 },
             { id = 'g000ig0001', min = 1, max = 1 },
             { id = high_level_potions[math.random(#high_level_potions)], min = 1, max = 1 },
             { id = low_level_potions[math.random(#low_level_potions)], min = 1, max = 1 },
-            { id = resistance_potions[math.random(#resistance_potions)], min = 1, max = 1 },
+            --{ id = resistance_potions[math.random(#resistance_potions)], min = 1, max = 1 },
             { id = high_level_buff_scrolls[math.random(#high_level_buff_scrolls)], min = 1, max = 1 },
         }
 
@@ -419,6 +424,9 @@ end
 local bigZone0Id = 0
 local bigZone4Id = 4
 local treasureZone8Id = 8
+local treasureZone9Id = 9
+local treasureZone10Id = 10
+local treasureZone11Id = 11
 
 local startZone2Id = 2
 local startZone6Id = 6
@@ -432,8 +440,9 @@ function getZones(races)
 
 	local bigZoneSize = 14000
 	local startingZoneSize = 13000
-	local bufferZoneSize = 8000
-    local treasureZoneSize = 14000
+	local bufferZoneSize = 6000
+    local treasureZoneSize = 20000
+    local treasureZoneSplitSize = treasureZoneSize / 4
 
 	local zones = {}
 
@@ -454,7 +463,15 @@ function getZones(races)
 
 	zones[8] = getBufferZone(bufferZone7Id, races[1], bufferZoneSize)
 
-    zones[9] = getTreasureZone(treasureZone8Id, treasureZoneSize)
+    -- zones[9] = getTreasureZone(treasureZone8Id, treasureZoneSize)
+
+    zones[9] = getTreasureSplitWithTownZone(treasureZone8Id, treasureZoneSplitSize, races[1])
+
+    zones[10] = getTreasureSplitZone(treasureZone9Id, treasureZoneSplitSize, races[1], races[2])
+
+    zones[11] = getTreasureSplitWithTownZone(treasureZone10Id, treasureZoneSplitSize, races[2])
+
+    zones[12] = getTreasureSplitZone(treasureZone11Id, treasureZoneSplitSize, races[1], races[2])
 
 	return zones
 end
@@ -603,11 +620,61 @@ end
 ----------
 
 ----------
+-- mines in the center split zone
+function getSplitZoneMines(race1, race2)
+    local zoneMines = { }
+
+    zoneMines.lifeMana = 1
+    zoneMines.runicMana = 1
+    zoneMines.deathMana = 1
+    zoneMines.infernalMana = 1
+    zoneMines.groveMana = 1
+
+    if race1 == Race.Human or race2 == Race.Human then
+        zoneMines.lifeMana = 0
+    end
+    if race1 == Race.Dwarf or race2 == Race.Dwarf then
+        zoneMines.runicMana = 0
+    end
+    if race1 == Race.Undead or race2 == Race.Undead then
+        zoneMines.deathMana = 0
+    end
+    if race1 == Race.Heretic or race2 == Race.Heretic then
+        zoneMines.infernalMana = 0
+    end
+    if race1 == Race.Elf or race2 == Race.Elf then
+        zoneMines.groveMana = 0
+    end
+
+    return zoneMines
+end
+
+function getSplitWithTownZoneMines(race)
+    local zoneMines = { }
+    zoneMines.gold = 1
+    if race == Race.Human then
+        zoneMines.lifeMana = 1
+    elseif race == Race.Dwarf then
+        zoneMines.runicMana = 1
+    elseif race == Race.Undead then
+        zoneMines.deathMana = 1
+    elseif race == Race.Heretic then
+        zoneMines.infernalMana = 1
+    elseif race == Race.Elf then
+        zoneMines.groveMana = 1
+    end
+
+    return zoneMines   
+end
+-- end
+----------
+
+----------
 -- getting a single stack
 function getSingleStack(level, Types, minItemValue, maxItemValue, bonus)
     local singleStack = {}
 
-    local baseExpTable = { min = 120, max = 160 }
+    local baseExpTable = { min = 140, max = 180 }
     local stackItems = {}
     local stackRandomItems = {
         {id = 'g001ig0180', min = 3, max = 3},
@@ -632,7 +699,7 @@ function getSingleStack(level, Types, minItemValue, maxItemValue, bonus)
     end
 
     singleStack['count'] = 1
-    singleStack['value'] = { min = baseExpTable['min'] + ((baseExpTable['min'] / (2 - level * 0.2)) * (level - 1)), max = baseExpTable['max'] + ((baseExpTable['max'] / (2 - level * 0.15)) * (level - 1)) }
+    singleStack['value'] = { min = diff * (baseExpTable['min'] + ((baseExpTable['min'] / (2 - level * 0.2)) * (level - 1))), max = diff * (baseExpTable['max'] + ((baseExpTable['max'] / (2 - level * 0.15)) * (level - 1))) }
 
     if level < 3 then
         stackSubraces = subraceRandomizer(1)
@@ -684,17 +751,20 @@ end
 
 ----------
 -- getting neutral town
-function getGuard(level, subraces, Types, minItemValue, maxItemValue, bonus, exactItems)
+function getGuard(level, subraces, Types, minItemValue, maxItemValue, bonus, exactItems, leaders)
     local Guard = {}
 
     Guard['subraceTypes'] = subraces
-    Guard['value'] = {min = 185 * level * (1 + ((level - 1) * 0.1)), max = 210 * level * (1 + ((level - 1) * 0.1))}
+    Guard['value'] = {min = diff * 185 * level * (1 + ((level - 1) * 0.1)), max = diff * 210 * level * (1 + ((level - 1) * 0.1))}
     Guard['loot'] = {
         items = exactItems,
         itemTypes = Types,
         itemValue = { min = minItemValue, max = maxItemValue },
         value = { min = maxItemValue * bonus, max = maxItemValue * bonus},
     }
+    if leaders then
+        Guard['leaderIds'] = {'g000uu7503', 'g000uu8149', 'g000uu8104', 'g000uu6018', 'g000uu6016', 'g000uu7585', 'g000uu7520'}
+    end
 
     return Guard
 end
@@ -717,7 +787,7 @@ function getNeutralTown(level, Types, minItemValue, maxItemValue, bonus, exactIt
     Town['tier'] = level
     Town['garrison'] = {
         subraceTypes = townSubraces,
-        value = {min = 180 * level * (1 + (level - 1) * 0.1), max = 200 * level * (1 + (level - 1) * 0.1)},
+        value = {min = diff * 180 * level * (1 + (level - 1) * 0.1), max = diff * 200 * level * (1 + (level - 1) * 0.1)},
         loot = {
             items = exactItems,
             itemTypes = Types,
@@ -726,7 +796,7 @@ function getNeutralTown(level, Types, minItemValue, maxItemValue, bonus, exactIt
             
         },
     }
-    Town['gapMask'] = 9
+    Town['gapMask'] = 15
     Town['stack'] = guard
 
     return Town
@@ -902,7 +972,7 @@ function getStartingZone(zoneId, playerRace, zoneSize)
                 items = startingItems
             },
         },
-        gapMask = 9,
+        gapMask = 15,
         spells = startingSpells,
     }
 
@@ -911,9 +981,9 @@ function getStartingZone(zoneId, playerRace, zoneSize)
         loot = {
             itemTypes = {Item.Valuable, Item.PotionBoost, Item.Orb},
             itemValue = {min = 50, max = 200},
-            value = {min = 1200, max = 1200},
+            value = {min = 1000, max = 1000},
             items = {
-                {id = 'g000ig5084', min = 1, max = 1},
+                --{id = 'g000ig5084', min = 1, max = 1},
                 {id = 'g000ig0001', min = 1, max = 1},
                 {id = 'g000ig0005', min = 2, max = 2},
                 {id = 'g000ig0006', min = 1, max = 1},
@@ -983,14 +1053,14 @@ function getBufferZone(zoneId, playerRace, zoneSize)
     end
 
     zoneContent['stacks'] = {
-        getSingleStack(2, {Item.PotionHeal}, 50, 150, 2),
-        getSingleStack(2, {Item.PotionHeal, Item.PotionRevive}, 50, 250, 1),
+        getSingleStack(3, {Item.PotionHeal}, 50, 150, 2),
+        getSingleStack(3, {Item.PotionHeal, Item.PotionRevive}, 50, 250, 1),
         getSingleStack(3, {Item.PotionBoost}, 150, 350, 2),
         getSingleStack(3, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
         getSingleStack(3, {Item.Scroll}, 200, 400, 1),
         getSingleStack(4, {Item.Talisman}, 500, 800, 1),
         getSingleStack(4, {Item.Valuable, Item.Orb}, 500, 900, 2),
-        getSingleStack(4, {Item.PotionPermanent}, 400, 600, 2),
+        getSingleStack(4, {Item.PotionPermanent}, 500, 600, 2),
         {count=1, value={min=540,max=610}, subraceTypes=subraceRandomizer(3), loot={items={{id='g001ig0516',min=1,max=1},{id='g000ig0001',min=1,max=1}}}},
     }
 
@@ -999,7 +1069,7 @@ function getBufferZone(zoneId, playerRace, zoneSize)
         loot = {
             itemTypes = {Item.Valuable, Item.Scroll, Item.PotionBoost},
             itemValue = {min = 50, max = 350},
-            value = {min = 1200, max = 1200},
+            value = {min = 1000, max = 1000},
             items = {
                 { id = 'g001ig0482', min = 1, max = 1 },
                 { id = 'g001ig0481', min = 1, max = 1 },
@@ -1022,78 +1092,79 @@ function getBufferZone(zoneId, playerRace, zoneSize)
     local zoneItemTypes = shuffleTable({Item.Banner, Item.TravelItem, Item.Jewel})
 
     zoneContent['towns'] = {
-        getNeutralTown(3, {zoneItemTypes[1]}, 500, 800, 1, getExacts('t3TownExacts'), getGuard(3, subraceRandomizer(2), {Item.Valuable, Item.Orb}, 500, 1000, 2, getExacts('t3TownGuardExacts'))),
+        getNeutralTown(3, {zoneItemTypes[1]}, 500, 800, 1, getExacts('t3TownExacts'), getGuard(3, subraceRandomizer(2), {Item.Valuable, Item.Orb}, 500, 900, 1, getExacts('t3TownGuardExacts'))),
     }
     zoneContent['ruins'] = {
         getRuins(3, {min=460, max=510}, {zoneItemTypes[2]}, 500, 800, 1, {}),
         getRuins(3, {min=460, max=510}, {zoneItemTypes[3]}, 500, 800, 1, {}),
+        getRuins(3, {min=300, max=400}, {Item.Weapon, Item.Armor}, 600, 900, 1, {})
     }
 
-    local raceUnits = {}
-    if playerRace == Race.Human then
-        raceUnits = {
-            {id = 'g003uu5002', level = 2, unique = false},
-            {id = 'g000uu0009', level = 2, unique = false},
-            {id = 'g000uu7561', level = 2, unique = false},
-            {id = 'g000uu0012', level = 2, unique = false},
-            {id = 'g000uu0016', level = 2, unique = false},
-            {id = 'g000uu2014', level = 2, unique = false},
-            {id = 'g000uu0004', level = 2, unique = false},
-            {id = 'g000uu2029', level = 2, unique = false},
-            {id = 'g000uu0007', level = 2, unique = false},
-            {id = 'g000uu0002', level = 2, unique = false},
-            {id = 'g000uu8310', level = 2, unique = false},
-        }
-    elseif playerRace == Race.Dwarf then
-        raceUnits = {
-            {id = 'g000uu0027', level = 2, unique = false},
-            {id = 'g001uu7571', level = 2, unique = false},
-            {id = 'g000uu0037', level = 2, unique = false},
-            {id = 'g004uu8005', level = 2, unique = false},
-            {id = 'g000uu0030', level = 2, unique = false},
-        }
-    elseif playerRace == Race.Elf then
-        raceUnits = {
-            {id = 'g000uu8015', level = 2, unique = false},
-            {id = 'g000uu8016', level = 2, unique = false},
-            {id = 'g000uu8032', level = 2, unique = false},
-            {id = 'g000uu8019', level = 2, unique = false},
-            {id = 'g000uu8022', level = 2, unique = false},
-            {id = 'g000uu8026', level = 2, unique = false},
-        }
-    elseif playerRace == Race.Undead then
-        raceUnits = {
-            {id = 'g001uu7563', level = 2, unique = false},
-            {id = 'g000uu0094', level = 2, unique = false},
-            {id = 'g000uu0087', level = 2, unique = false},
-            {id = 'g000uu0081', level = 2, unique = false},
-            {id = 'g000uu0079', level = 2, unique = false},
-            {id = 'g000uu0090', level = 2, unique = false},
-            {id = 'g001uu7564', level = 2, unique = false},
-            {id = 'g003uu5013', level = 2, unique = false},
-            {id = 'g001uu7565', level = 2, unique = false},
-            {id = 'g000uu7542', level = 2, unique = false},
-        }
-    elseif playerRace == Race.Heretic then
-        raceUnits = {
-            {id = 'g000uu7572', level = 2, unique = false},
-            {id = 'g000uu0053', level = 2, unique = false},
-            {id = 'g000uu0067', level = 2, unique = false},
-            {id = 'g000uu0058', level = 2, unique = false},
-            {id = 'g000uu0056', level = 2, unique = false},
-            {id = 'g000uu0063', level = 2, unique = false},
-        }
-    end
+    -- local raceUnits = {}
+    -- if playerRace == Race.Human then
+    --     raceUnits = {
+    --         {id = 'g003uu5002', level = 2, unique = false},
+    --         {id = 'g000uu0009', level = 2, unique = false},
+    --         {id = 'g000uu7561', level = 2, unique = false},
+    --         {id = 'g000uu0012', level = 2, unique = false},
+    --         {id = 'g000uu0016', level = 2, unique = false},
+    --         {id = 'g000uu2014', level = 2, unique = false},
+    --         {id = 'g000uu0004', level = 2, unique = false},
+    --         {id = 'g000uu2029', level = 2, unique = false},
+    --         {id = 'g000uu0007', level = 2, unique = false},
+    --         {id = 'g000uu0002', level = 2, unique = false},
+    --         {id = 'g000uu8310', level = 2, unique = false},
+    --     }
+    -- elseif playerRace == Race.Dwarf then
+    --     raceUnits = {
+    --         {id = 'g000uu0027', level = 2, unique = false},
+    --         {id = 'g001uu7571', level = 2, unique = false},
+    --         {id = 'g000uu0037', level = 2, unique = false},
+    --         {id = 'g004uu8005', level = 2, unique = false},
+    --         {id = 'g000uu0030', level = 2, unique = false},
+    --     }
+    -- elseif playerRace == Race.Elf then
+    --     raceUnits = {
+    --         {id = 'g000uu8015', level = 2, unique = false},
+    --         {id = 'g000uu8016', level = 2, unique = false},
+    --         {id = 'g000uu8032', level = 2, unique = false},
+    --         {id = 'g000uu8019', level = 2, unique = false},
+    --         {id = 'g000uu8022', level = 2, unique = false},
+    --         {id = 'g000uu8026', level = 2, unique = false},
+    --     }
+    -- elseif playerRace == Race.Undead then
+    --     raceUnits = {
+    --         {id = 'g001uu7563', level = 2, unique = false},
+    --         {id = 'g000uu0094', level = 2, unique = false},
+    --         {id = 'g000uu0087', level = 2, unique = false},
+    --         {id = 'g000uu0081', level = 2, unique = false},
+    --         {id = 'g000uu0079', level = 2, unique = false},
+    --         {id = 'g000uu0090', level = 2, unique = false},
+    --         {id = 'g001uu7564', level = 2, unique = false},
+    --         {id = 'g003uu5013', level = 2, unique = false},
+    --         {id = 'g001uu7565', level = 2, unique = false},
+    --         {id = 'g000uu7542', level = 2, unique = false},
+    --     }
+    -- elseif playerRace == Race.Heretic then
+    --     raceUnits = {
+    --         {id = 'g000uu7572', level = 2, unique = false},
+    --         {id = 'g000uu0053', level = 2, unique = false},
+    --         {id = 'g000uu0067', level = 2, unique = false},
+    --         {id = 'g000uu0058', level = 2, unique = false},
+    --         {id = 'g000uu0056', level = 2, unique = false},
+    --         {id = 'g000uu0063', level = 2, unique = false},
+    --     }
+    -- end
 
-    if zoneId == 1 or zoneId == 5 then
-        zoneContent['mercenaries'] = {
-            getMercenary(playerRace, raceUnits, getGuard(3, subraceRandomizer(2), {Item.Valuable}, 500, 1000, 2, getExacts('t2MerchantExacts')))
-        }
-    elseif zoneId == 3 or zoneId == 7 then
-        zoneContent['resourceMarkets'] = {
-            getResourceMarket(3000, 1000, getGuard(3, subraceRandomizer(2), {Item.Valuable}, 500, 1000, 2, getExacts('t2MerchantExacts')))
-        }
-    end
+    -- if zoneId == 1 or zoneId == 5 then
+    --     zoneContent['mercenaries'] = {
+    --         getMercenary(playerRace, raceUnits, getGuard(3, subraceRandomizer(2), {Item.Valuable}, 500, 1000, 2, getExacts('t2MerchantExacts')))
+    --     }
+    -- elseif zoneId == 3 or zoneId == 7 then
+    --     zoneContent['resourceMarkets'] = {
+    --         getResourceMarket(3000, 1000, getGuard(3, subraceRandomizer(2), {Item.Valuable}, 500, 1000, 2, getExacts('t2MerchantExacts')))
+    --     }
+    -- end
 
     return zoneContent
 end
@@ -1108,6 +1179,7 @@ function getBigZone(zoneId, zoneSize)
     zoneContent['id'] = zoneId
     zoneContent['size'] = zoneSize
     zoneContent['type'] = Zone.Treasure
+    -- zoneContent['border'] = Border.Open
     zoneContent['mines'] = {
         gold = 2,
         lifeMana = 1,
@@ -1118,10 +1190,10 @@ function getBigZone(zoneId, zoneSize)
     }
 
     zoneContent['bags'] = {
-        count = 7,
+        count = 9,
         loot = {
             itemTypes = { Item.Valuable, Item.PotionHeal, Item.PotionBoost, Item.Scroll },
-            value = { min = 1000, max = 1000 },
+            value = { min = 1400, max = 1800 },
             items = {
                 { id = 'g000ig0001', min = 1, max = 1 },
                 { id = 'g000ig0006', min = 2, max = 2 },
@@ -1139,15 +1211,12 @@ function getBigZone(zoneId, zoneSize)
     }
 
     zoneContent['stacks'] = {
-        getSingleStack(2, {Item.PotionHeal}, 50, 150, 2),
-        getSingleStack(2, {Item.PotionHeal}, 50, 150, 2),
-        getSingleStack(3, {Item.Orb}, 400, 600, 1),
-        getSingleStack(3, {Item.Orb}, 400, 600, 1),
-        getSingleStack(3, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
+        getSingleStack(4, {Item.PotionHeal}, 50, 150, 2),
+        getSingleStack(4, {Item.Orb}, 400, 600, 1),
+        getSingleStack(4, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
         getSingleStack(4, {Item.Scroll, Item.PotionHeal}, 200, 400, 2),
-        getSingleStack(4, {Item.Scroll, Item.PotionHeal}, 200, 400, 2),
-        getSingleStack(3, {Item.Valuable}, 500, 1250, 1),
-        getSingleStack(3, {Item.Valuable}, 500, 1250, 1),
+        getSingleStack(4, {Item.Valuable}, 500, 1250, 1),
+        getSingleStack(4, {Item.Valuable}, 500, 1250, 1),
         getSingleStack(4, {Item.PotionHeal, Item.PotionRevive}, 150, 250, 3),
         getSingleStack(4, {Item.PotionHeal}, 50, 150, 1),
         getSingleStack(4, {Item.PotionBoost}, 150, 350, 2),
@@ -1158,39 +1227,56 @@ function getBigZone(zoneId, zoneSize)
         getSingleStack(5, {Item.Wand}, 550, 550, 1),
     }
 
-    local itemMerchant = getMerchant({Item.Armor, Item.Weapon, Item.Jewel, Item.Banner, Item.Talisman}, 700, 900, 8, getGuard(3, subraceRandomizer(2), {Item.Valuable}, 250, 750, 2, getExacts('t3MerchantExacts')))
+    local itemMerchant = getMerchant({Item.Armor, Item.Weapon, Item.Jewel, Item.Banner, Item.Talisman}, 700, 900, 8, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 250, 750, 2, getExacts('t3MerchantExacts')))
     -- for key, value in pairs({'g001ig0027', 'g001ig0028', 'g001ig0022', 'g001ig0029', 'g001ig0030'}) do
     --     table.insert(itemMerchant['goods']['items'], {id = value, min = 1, max = 1})
     -- end
+    local mageMerchant = getMerchant({Item.TravelItem, Item.Wand, Item.Orb}, 500, 1000, 6, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 250, 750, 2, getExacts('t3MerchantExacts')))
     local bigPerma = {'g001ig0027', 'g001ig0028', 'g001ig0022', 'g001ig0029', 'g001ig0030'}
     for i = 1,3 do
         x = math.random(1, #bigPerma)
-        table.insert(itemMerchant['goods']['items'], {id = bigPerma[x], min = 1, max = 1})
+        table.insert(mageMerchant['goods']['items'], {id = bigPerma[x], min = 1, max = 1})
         table.remove(bigPerma, x)
     end
+    for i = 1,2 do
+        x = math.random(1, #very_high_tier)
+        table.insert(itemMerchant['goods']['items'], {id = very_high_tier[x], min = 1, max = 1})
+        table.remove(very_high_tier, x)
+    end
+    for i = 1,2 do
+        x = math.random(1, #very_high_tier)
+        table.insert(mageMerchant['goods']['items'], {id = very_high_tier[x], min = 1, max = 1})
+        table.remove(very_high_tier, x)
+    end
+
 
     zoneContent['merchants'] = {
         itemMerchant,
+        mageMerchant,
+    }
+
+    zoneContent['resourceMarkets'] = {
+        getResourceMarket(3000, 1000, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 500, 1000, 2, getExacts('t3MerchantExacts')))
     }
 
     zoneContent['towns'] = {
-        getNeutralTown(4, {Item.Banner}, 1300, 1500, 1, getExacts('t4BigExacts'), getGuard(4, subraceRandomizer(2), {Item.Valuable}, 1000, 2000, 1, getExacts('t4BigGuardExacts'))),
-        getNeutralTown(2, {Item.PotionPermanent}, 600, 750, 1, getExacts('t2BigExacts'), getGuard(3, subraceRandomizer(2), {Item.Orb}, 500, 800, 1, getExacts('t2BigGuardExacts'))),
+        getNeutralTown(5, {Item.Banner}, 1500, 2500, 1, getExacts('t5BigExacts'), getGuard(5, subraceRandomizer(2), {Item.Valuable}, 1000, 2000, 1, getExacts('t5BigGuardExacts'))),
+        --getNeutralTown(2, {Item.PotionPermanent}, 600, 750, 1, getExacts('t2BigExacts'), getGuard(3, subraceRandomizer(2), {Item.Orb}, 500, 800, 1, getExacts('t2BigGuardExacts'))),
     }
     zoneContent['ruins'] = {
-        getRuins(4, {min=300, max=350}, {Item.PotionPermanent}, 900, 1200, 1, {}),
-        getRuins(4, {min=300, max=350}, {}, 0, 0, 0, {{id = 'g001ig0282', min = 1, max = 1}}),
-        getRuins(5, {min=320, max=370}, {Item.Armor, Item.Weapon}, 950, 1250, 1, {}),
+        -- getRuins(4, {min=300, max=350}, {}, 0, 0, 0, {{id = 'g001ig0282', min = 1, max = 1}}),
+        getRuins(5, {min=320, max=370}, {Item.Armor, Item.Weapon}, 1000, 1500, 1, {}),
         getRuins(5, {min=320, max=370}, {Item.Jewel}, 1000, 1200, 1, {}),
+        getRuins(6, {min=150, max=200}, {}, 0, 0, 0, {{id = control[math.random(#control)], min = 1, max = 1}}),
     }
-    zoneContent['trainers'] = {
-        {guard = getGuard(4, subraceRandomizer(2), {Item.Valuable}, 100, 500, 2, getExacts('t3MerchantExacts'))}
-    }
+    -- zoneContent['trainers'] = {
+    --     {guard = getGuard(4, subraceRandomizer(2), {Item.Valuable}, 100, 500, 2, getExacts('t3MerchantExacts'))}
+    -- }
     zoneContent['mages'] = {
-        getMageTower(2, getGuard(3, subraceRandomizer(2), {Item.Valuable}, 100, 500, 2, getExacts('t2MerchantExacts')))
+        getMageTower(3, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 100, 500, 2, getExacts('t3MerchantExacts')))
     }
     zoneContent['mercenaries'] = {
-        getBigMercenary(getGuard(3, subraceRandomizer(2), {Item.Orb}, 500, 800, 1, getExacts('t2MerchantExacts')))
+        getBigMercenary(getGuard(4, subraceRandomizer(2), {Item.Orb}, 500, 800, 1, getExacts('t2MerchantExacts')))
     }
 
     return zoneContent
@@ -1200,29 +1286,189 @@ end
 
 ----------
 -- center zone
-function getTreasureZone(zoneId, zoneSize)
+-- function getTreasureZone(zoneId, zoneSize)
+--     local zoneContent = {}
+
+--     zoneContent['id'] = zoneId
+--     zoneContent['size'] = zoneSize
+--     zoneContent['type'] = Zone.Treasure
+--     zoneContent['mines'] = {
+--         gold = 2,
+--         lifeMana = 1,
+--         runicMana = 1,
+--         deathMana = 1,
+--         infernalMana = 1,
+--         groveMana = 1
+--     }
+
+--     zoneContent['bags'] = {
+--         count = 8,
+--         loot = {
+--             itemTypes = { Item.Valuable, Item.PotionHeal, Item.PotionBoost },
+--             value = { min = 1400, max = 1800 },
+--             items = {
+--                 { id = 'g000ig0001', min = 2, max = 2 },
+--                 { id = 'g000ig0006', min = 2, max = 2 },
+--                 { id = 'g000ig0022', min = 1, max = 1 },
+--                 { id = 'g000ig0021', min = 1, max = 1 },
+--                 { id = 'g000ig0023', min = 1, max = 1 },
+--                 { id = 'g000ig0024', min = 1, max = 1 },
+--                 { id = 'g001ig0125', min = 1, max = 1 },
+--                 { id = 'g001ig0036', min = 1, max = 1 },
+--                 { id = 'g001ig0128', min = 1, max = 1 },                   
+--             },
+--             itemValue = { min = 150, max = 350 }
+--         }
+--     }
+
+--     zoneContent['stacks'] = {
+--         getSingleStack(3, {Item.PotionHeal}, 50, 150, 1),
+--         getSingleStack(3, {Item.PotionHeal}, 50, 150, 1),
+--         getSingleStack(4, {Item.PotionBoost}, 150, 350, 2),
+--         getSingleStack(4, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
+--         getSingleStack(4, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
+--         getSingleStack(4, {Item.Scroll, Item.PotionHeal}, 200, 400, 2),
+--         getSingleStack(4, {Item.Orb}, 400, 800, 1),
+--         getSingleStack(4, {Item.Orb}, 400, 800, 1),
+--         getSingleStack(3, {Item.Valuable}, 500, 1250, 1),
+--         getSingleStack(3, {Item.Valuable}, 500, 1250, 1),
+--         getSingleStack(4, {Item.PotionHeal, Item.PotionRevive}, 150, 250, 3),
+--         getSingleStack(4, {Item.PotionHeal}, 50, 150, 1),
+--         getSingleStack(5, {Item.Orb}, 800, 900, 1),
+--         getSingleStack(4, {Item.PotionBoost}, 150, 350, 2),
+--         getSingleStack(4, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
+--         getSingleStack(5, {Item.PotionPermanent}, 600, 750, 1),
+--         getSingleStack(5, {Item.Wand}, 550, 550, 1),
+--     }
+
+--     local mageMerchant = getMerchant({Item.Scroll, Item.Wand}, 200, 550, 10, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 250, 750, 2, getExacts('t3MerchantExacts')))
+--     for key, value in pairs({'g000ig5039', 'g000ig5120', 'g000ig5083', 'g000ig5095'}) do
+--         table.insert(mageMerchant['goods']['items'], {id = value, min = 1, max = 1})
+--     end
+
+--     local itemMerchant = getMerchant({Item.Armor, Item.Weapon, Item.Jewel, Item.Banner, Item.TravelItem}, 500, 900, 8, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 250, 750, 2, getExacts('t3MerchantExacts')))
+--     for key, value in pairs({'g000ig9130', 'g000ig9123', 'g001ig0202', 'g000ig9040', 'g000ig9014'}) do
+--         table.insert(itemMerchant['goods']['items'], {id = value, min = 1, max = 1})
+--     end
+    
+--     zoneContent['merchants'] = {
+--         mageMerchant,
+--         itemMerchant,
+--     }
+
+--     zoneContent['ruins'] = {
+--         getRuins(5, {min=150, max=200}, {}, 0, 0, 0, {{id = 'g001ig0522', min = 1, max = 1}}),
+--         getRuins(5, {min=320, max=370}, {Item.Armor, Item.Weapon}, 1100, 1400, 1, {}),
+--         getRuins(5, {min=320, max=370}, {Item.Banner}, 1500, 1500, 1, {}),
+--         getRuins(5, {min=320, max=370}, {Item.Jewel}, 1000, 1200, 1, {}),
+--         getRuins(6, {min=150, max=200}, {}, 0, 0, 0, {{id = control[math.random(#control)], min = 1, max = 1}}),
+--     }
+
+--     zoneContent['towns'] = {
+--         getNeutralTown(5, {Item.Armor, Item.Weapon}, 1750, 3000, 1, getExacts('t5CenterExacts'), getGuard(6, subraceRandomizer(GO), {Item.Scroll}, 550, 550, 2, getExacts('t5CenterGuardExacts'))),
+--         getNeutralTown(3, {Item.PotionPermanent}, 600, 750, 1, getExacts('t3CenterExacts'), getGuard(3, subraceRandomizer(2), {Item.Valuable}, 500, 1000, 1, getExacts('t3CenterGuardExacts'))),
+--         --getNeutralTown(1, {Item.PotionPermanent}, 600, 750, 1, t1TownExacts, getGuard(3, subraceRandomizer(2), {Item.Valuable}, 250, 750, 1, t1TownGuardExacts)),
+--     }
+--     zoneContent['mages'] = {
+--         getMageTower(3, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 100, 500, 2, getExacts('t3MerchantExacts')))
+--     }
+
+--     return zoneContent
+-- end
+-- end
+----------
+
+----------
+-- center zone
+function race_to_leader(race)
+    if race == Race.Human then
+        return 'g000uu0022'
+    end
+    if race == Race.Dwarf then
+        return 'g000uu0047'
+    end
+    if race == Race.Undead then
+        return 'g000uu0099'
+    end
+    if race == Race.Heretic then
+        return 'g000uu0073'
+    end
+    if race == Race.Elf then
+        return 'g000uu8012'
+    end
+end
+-- end
+----------
+
+----------
+-- center split zone with town
+function getTreasureSplitWithTownZone(zoneId, zoneSize, race)
     local zoneContent = {}
 
     zoneContent['id'] = zoneId
     zoneContent['size'] = zoneSize
     zoneContent['type'] = Zone.Treasure
-    zoneContent['mines'] = {
-        gold = 2,
-        lifeMana = 1,
-        runicMana = 1,
-        deathMana = 1,
-        infernalMana = 1,
-        groveMana = 1
+    zoneContent['border'] = Border.Open
+
+    zoneContent['mines'] = getSplitWithTownZoneMines(race)
+
+    local mageMerchant = getMerchant({Item.Scroll, Item.Wand}, 200, 550, 10, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 250, 750, 2, getExacts('t3MerchantExacts')))
+    for key, value in pairs({'g000ig5039', 'g000ig5120', 'g000ig5083', 'g000ig5095'}) do
+        table.insert(mageMerchant['goods']['items'], {id = value, min = 1, max = 1})
+    end
+
+    local itemMerchant = getMerchant({Item.Armor, Item.Weapon, Item.Jewel, Item.Banner, Item.TravelItem}, 500, 900, 8, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 250, 750, 2, getExacts('t3MerchantExacts')))
+    for key, value in pairs({'g000ig9130', 'g000ig9123', 'g001ig0202', 'g000ig9040', 'g000ig9014'}) do
+        table.insert(itemMerchant['goods']['items'], {id = value, min = 1, max = 1})
+    end
+    for i = 1,2 do
+        x = math.random(1, #very_high_tier)
+        table.insert(itemMerchant['goods']['items'], {id = very_high_tier[x], min = 1, max = 1})
+        table.remove(very_high_tier, x)
+    end
+    for i = 1,2 do
+        x = math.random(1, #very_high_tier)
+        table.insert(mageMerchant['goods']['items'], {id = very_high_tier[x], min = 1, max = 1})
+        table.remove(very_high_tier, x)
+    end
+
+    zoneContent['stacks'] = {
+        -- getSingleStack(4, {Item.PotionHeal}, 50, 150, 1),
+        getSingleStack(4, {Item.Valuable}, 500, 1250, 1),
+        getSingleStack(4, {Item.Scroll, Item.PotionHeal}, 200, 400, 2),
+        getSingleStack(5, {Item.Valuable}, 1000, 1500, 1),
+        getSingleStack(4, {Item.PotionBoost}, 150, 350, 2),
+        getSingleStack(5, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
+        getSingleStack(5, {Item.Wand}, 550, 550, 1),
+    }
+    
+    if zoneId == 8 then
+        zoneContent['merchants'] = {
+            mageMerchant,
+        }
+        table.insert(zoneContent['stacks'], {count=1, owner=race, value={min=40, max=50}, leaderIds={race_to_leader(race)}})
+    elseif zoneId == 10 then
+        zoneContent['merchants'] = {
+            itemMerchant,
+        }
+        table.insert(zoneContent['stacks'], {count=1, owner=race, value={min=40, max=50}, leaderIds={race_to_leader(race)}})
+    end
+
+    zoneContent['towns'] = {
+        getNeutralTown(4, {Item.Armor, Item.Weapon}, 1400, 2000, 1, getExacts('t4CenterExacts'), getGuard(5, subraceRandomizer(GO), {Item.Scroll}, 550, 550, 2, getExacts('t4CenterGuardExacts'))),
+    }
+
+    zoneContent['ruins'] = {
+        getRuins(5, {min=320, max=370}, {Item.Jewel}, 1000, 1200, 1, {}),
+        getRuins(5, {min=150, max=200}, {}, 0, 0, 0, {{id = 'g001ig0522', min = 1, max = 1}}),
     }
 
     zoneContent['bags'] = {
-        count = 8,
+        count = 5,
         loot = {
             itemTypes = { Item.Valuable, Item.PotionHeal, Item.PotionBoost },
-            value = { min = 1400, max = 1800 },
+            value = { min = 1000, max = 1000 },
             items = {
-                { id = 'g000ig0001', min = 2, max = 2 },
-                { id = 'g000ig0006', min = 2, max = 2 },
                 { id = 'g000ig0022', min = 1, max = 1 },
                 { id = 'g000ig0021', min = 1, max = 1 },
                 { id = 'g000ig0023', min = 1, max = 1 },
@@ -1235,56 +1481,60 @@ function getTreasureZone(zoneId, zoneSize)
         }
     }
 
+    return zoneContent
+end
+-- end
+----------
+
+----------
+-- center split zone without town
+function getTreasureSplitZone(zoneId, zoneSize, race1, race2)
+    local zoneContent = {}
+
+    zoneContent['id'] = zoneId
+    zoneContent['size'] = zoneSize
+    zoneContent['type'] = Zone.Treasure
+    zoneContent['border'] = Border.Open
+
+    zoneContent['mines'] = getSplitZoneMines(race1, race2)
+
+    zoneContent['ruins'] = {
+        -- getRuins(5, {min=320, max=370}, {Item.Banner}, 1200, 1600, 1, {}),
+        getRuins(5, {min=300, max=350}, {Item.PotionPermanent}, 900, 1200, 1, {}),
+        -- getRuins(5, {min=150, max=200}, {}, 0, 0, 0, {{id = 'g001ig0522', min = 1, max = 1}}),
+        getRuins(5, {min=320, max=370}, {Item.Armor, Item.Weapon}, 1100, 1400, 1, {}),
+    }
+
+    zoneContent['mages'] = {
+        getMageTower(2, getGuard(3, subraceRandomizer(2), {Item.Valuable}, 100, 500, 2, getExacts('t2MerchantExacts')))
+    }
+
+    zoneContent['trainers'] = {
+        {guard = getGuard(3, subraceRandomizer(2), {Item.Valuable}, 100, 500, 2, getExacts('t2MerchantExacts'))}
+    }
+
     zoneContent['stacks'] = {
-        getSingleStack(3, {Item.PotionHeal}, 50, 150, 1),
-        getSingleStack(3, {Item.PotionHeal}, 50, 150, 1),
-        getSingleStack(4, {Item.PotionBoost}, 150, 350, 2),
-        getSingleStack(4, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
+        getSingleStack(4, {Item.TravelItem}, 500, 900, 1),
+        getSingleStack(4, {Item.Valuable}, 500, 1250, 1),
         getSingleStack(4, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
         getSingleStack(4, {Item.Scroll, Item.PotionHeal}, 200, 400, 2),
         getSingleStack(4, {Item.Orb}, 400, 800, 1),
-        getSingleStack(4, {Item.Orb}, 400, 800, 1),
-        getSingleStack(3, {Item.Valuable}, 500, 1250, 1),
-        getSingleStack(3, {Item.Valuable}, 500, 1250, 1),
-        getSingleStack(4, {Item.PotionHeal, Item.PotionRevive}, 150, 250, 3),
-        getSingleStack(4, {Item.PotionHeal}, 50, 150, 1),
-        getSingleStack(5, {Item.Orb}, 800, 900, 1),
         getSingleStack(4, {Item.PotionBoost}, 150, 350, 2),
-        getSingleStack(4, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
+        -- getSingleStack(5, {Item.PotionBoost, Item.PotionRevive}, 150, 350, 2),
         getSingleStack(5, {Item.PotionPermanent}, 600, 750, 1),
-        getSingleStack(5, {Item.Wand}, 550, 550, 1),
     }
 
-    local mageMerchant = getMerchant({Item.Scroll, Item.Wand}, 200, 550, 10, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 250, 750, 2, getExacts('t3MerchantExacts')))
-    for key, value in pairs({'g000ig5039', 'g000ig5120', 'g000ig5083', 'g000ig5095'}) do
-        table.insert(mageMerchant['goods']['items'], {id = value, min = 1, max = 1})
-    end
-
-    local itemMerchant = getMerchant({Item.Armor, Item.Weapon, Item.Jewel, Item.Banner, Item.TravelItem}, 500, 900, 8, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 250, 750, 2, getExacts('t3MerchantExacts')))
-    for key, value in pairs({'g000ig9130', 'g000ig9123', 'g001ig0202', 'g000ig9040', 'g000ig9014'}) do
-        table.insert(itemMerchant['goods']['items'], {id = value, min = 1, max = 1})
-    end
-    
-    zoneContent['merchants'] = {
-        mageMerchant,
-        itemMerchant,
-    }
-
-    zoneContent['ruins'] = {
-        getRuins(5, {min=150, max=200}, {}, 0, 0, 0, {{id = 'g001ig0522', min = 1, max = 1}}),
-        getRuins(5, {min=320, max=370}, {Item.Armor, Item.Weapon}, 1100, 1400, 1, {}),
-        getRuins(5, {min=320, max=370}, {Item.Banner}, 1500, 1500, 1, {}),
-        getRuins(5, {min=320, max=370}, {Item.Jewel}, 1000, 1200, 1, {}),
-        getRuins(6, {min=150, max=200}, {}, 0, 0, 0, {{id = control[math.random(#control)], min = 1, max = 1}}),
-    }
-
-    zoneContent['towns'] = {
-        getNeutralTown(5, {Item.Armor, Item.Weapon}, 1750, 3000, 1, getExacts('t5CenterExacts'), getGuard(6, subraceRandomizer(GO), {Item.Scroll}, 550, 550, 2, getExacts('t5CenterGuardExacts'))),
-        getNeutralTown(3, {Item.PotionPermanent}, 600, 750, 1, getExacts('t3CenterExacts'), getGuard(3, subraceRandomizer(2), {Item.Valuable}, 500, 1000, 1, getExacts('t3CenterGuardExacts'))),
-        --getNeutralTown(1, {Item.PotionPermanent}, 600, 750, 1, t1TownExacts, getGuard(3, subraceRandomizer(2), {Item.Valuable}, 250, 750, 1, t1TownGuardExacts)),
-    }
-    zoneContent['mages'] = {
-        getMageTower(3, getGuard(4, subraceRandomizer(2), {Item.Valuable}, 100, 500, 2, getExacts('t3MerchantExacts')))
+    zoneContent['bags'] = {
+        count = 5,
+        loot = {
+            itemTypes = { Item.Valuable, Item.PotionHeal, Item.PotionBoost },
+            value = { min = 900, max = 1200 },
+            items = {
+                { id = 'g000ig0001', min = 1, max = 1 },
+                { id = 'g000ig0006', min = 2, max = 2 },                  
+            },
+            itemValue = { min = 150, max = 350 }
+        }
     }
 
     return zoneContent
@@ -1296,30 +1546,51 @@ end
 -- zone connections
 function getConnections()
 
+
+
     local connections = {
-            { from = startZone2Id, to = bufferZone1Id, guard = getGuard(3, {Subrace.NeutralGreenSkin, Subrace.NeutralMarsh}, {Item.PotionPermanent}, 450, 650, 1, getExacts('startBufferExacts')) },
-            { from = startZone2Id, to = bufferZone3Id, guard = getGuard(3, {Subrace.NeutralBarbarian, Subrace.Dwarf}, {Item.PotionPermanent}, 450, 650, 1, getExacts('startBufferExacts')) },
-            { from = startZone2Id, to = treasureZone8Id, guard = getGuard(5, subraceRandomizer(GO), {Item.Armor, Item.Weapon, Item.Talisman}, 700, 1000, 1, getExacts('startTreasureExacts')) },
-            
-            { from = startZone6Id, to = bufferZone5Id, guard = getGuard(3, {Subrace.NeutralGreenSkin, Subrace.NeutralMarsh}, {Item.PotionPermanent}, 450, 650, 1, getExacts('startBufferExacts')) },
-            { from = startZone6Id, to = bufferZone7Id, guard = getGuard(3, {Subrace.NeutralBarbarian, Subrace.Dwarf}, {Item.PotionPermanent}, 450, 650, 1, getExacts('startBufferExacts')) },
-            { from = startZone6Id, to = treasureZone8Id, guard = getGuard(5, subraceRandomizer(GO), {Item.Armor, Item.Weapon, Item.Talisman}, 700, 1000, 1, getExacts('startTreasureExacts')) },
-    
-            { from = bufferZone1Id, to = bigZone0Id, guard = getGuard(5, subraceRandomizer(GO), {Item.TravelItem}, 800, 1100, 1, getExacts('bufferBigExacts')) },
-            { from = bufferZone7Id, to = bigZone0Id, guard = getGuard(5, subraceRandomizer(GO), {Item.TravelItem}, 800, 1100, 1, getExacts('bufferBigExacts')) },
-    
-            { from = bufferZone3Id, to = bigZone4Id, guard = getGuard(5, subraceRandomizer(GO), {Item.TravelItem}, 800, 1100, 1, getExacts('bufferBigExacts')) },
-            { from = bufferZone5Id, to = bigZone4Id, guard = getGuard(5, subraceRandomizer(GO), {Item.TravelItem}, 800, 1100, 1, getExacts('bufferBigExacts')) },
-    
-            { from = bigZone0Id, to = treasureZone8Id, guard = getGuard(5, subraceRandomizer(GO), {Item.Jewel}, 700, 1000, 1, getExacts('bigTreasureExacts')) },
-            { from = bigZone4Id, to = treasureZone8Id, guard = getGuard(5, subraceRandomizer(GO), {Item.Jewel}, 700, 1000, 1, getExacts('bigTreasureExacts')) },
-    
-            { from = bufferZone1Id, to = treasureZone8Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
-            { from = bufferZone3Id, to = treasureZone8Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
-            { from = bufferZone5Id, to = treasureZone8Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
-            { from = bufferZone7Id, to = treasureZone8Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
-            
-        }
+        { from = startZone2Id, to = bufferZone1Id, guard = getGuard(3, {Subrace.NeutralGreenSkin, Subrace.NeutralMarsh}, {Item.PotionPermanent}, 450, 650, 1, getExacts('startBufferExacts')) },
+        { from = startZone2Id, to = bufferZone3Id, guard = getGuard(3, {Subrace.NeutralBarbarian, Subrace.Dwarf}, {Item.PotionPermanent}, 450, 650, 1, getExacts('startBufferExacts')) },
+        --{ from = startZone2Id, to = treasureZone9Id, guard = getGuard(5, subraceRandomizer(GO), {Item.Armor, Item.Weapon, Item.Talisman}, 700, 1000, 1, getExacts('startTreasureExacts')) },
+        
+        { from = startZone6Id, to = bufferZone5Id, guard = getGuard(3, {Subrace.NeutralGreenSkin, Subrace.NeutralMarsh}, {Item.PotionPermanent}, 450, 650, 1, getExacts('startBufferExacts')) },
+        { from = startZone6Id, to = bufferZone7Id, guard = getGuard(3, {Subrace.NeutralBarbarian, Subrace.Dwarf}, {Item.PotionPermanent}, 450, 650, 1, getExacts('startBufferExacts')) },
+        --{ from = startZone6Id, to = treasureZone11Id, guard = getGuard(5, subraceRandomizer(GO), {Item.Armor, Item.Weapon, Item.Talisman}, 700, 1000, 1, getExacts('startTreasureExacts')) },
+
+        { from = bufferZone1Id, to = bigZone0Id, guard = getGuard(5, subraceRandomizer(GO), {Item.Weapon, Item.Armor}, 1000, 1400, 1, getExacts('bufferBigExacts')) },
+        { from = bufferZone7Id, to = bigZone0Id, guard = getGuard(5, subraceRandomizer(GO), {Item.Weapon, Item.Armor}, 1000, 1400, 1, getExacts('bufferBigExacts')) },
+
+        { from = bufferZone3Id, to = bigZone4Id, guard = getGuard(5, subraceRandomizer(GO), {Item.Weapon, Item.Armor}, 1000, 1400, 1, getExacts('bufferBigExacts')) },
+        { from = bufferZone5Id, to = bigZone4Id, guard = getGuard(5, subraceRandomizer(GO), {Item.Weapon, Item.Armor}, 1000, 1400, 1, getExacts('bufferBigExacts')) },
+
+        { from = bigZone0Id, to = treasureZone8Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Jewel}, 700, 1000, 1, getExacts('bigTreasureExacts'), true) },
+        { from = bigZone4Id, to = treasureZone10Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Jewel}, 700, 1000, 1, getExacts('bigTreasureExacts'), true) },
+
+        { from = bufferZone1Id, to = treasureZone8Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
+        { from = bufferZone7Id, to = treasureZone8Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
+
+        { from = bufferZone1Id, to = treasureZone9Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
+        { from = bufferZone3Id, to = treasureZone9Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
+
+        { from = bufferZone3Id, to = treasureZone10Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
+        { from = bufferZone5Id, to = treasureZone10Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
+
+        { from = bufferZone5Id, to = treasureZone11Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
+        { from = bufferZone7Id, to = treasureZone11Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Orb, Item.Talisman}, 700, 1000, 2, getExacts('bufferTreasureExacts')) },
+
+        { from = treasureZone8Id, to = treasureZone9Id, size = 0 },
+        { from = treasureZone8Id, to = treasureZone11Id, size = 0 },
+        { from = treasureZone10Id, to = treasureZone9Id, size = 0 },
+        { from = treasureZone10Id, to = treasureZone11Id, size = 0 },
+        
+    }
+    if GO then
+        table.insert(connections, { from = startZone2Id, to = treasureZone9Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Armor, Item.Weapon, Item.Talisman}, 700, 1000, 1, getExacts('startTreasureExacts'), true) })
+        table.insert(connections, { from = startZone6Id, to = treasureZone11Id, guard = getGuard(6, subraceRandomizer(GO), {Item.Armor, Item.Weapon, Item.Talisman}, 700, 1000, 1, getExacts('startTreasureExacts'), true) })
+    else
+        table.insert(connections, { from = startZone2Id, to = treasureZone9Id, size = 0 })
+        table.insert(connections, { from = startZone6Id, to = treasureZone11Id, size = 0 })
+    end
 
 	return connections
 end
@@ -1328,26 +1599,76 @@ end
 
 ----------
 -- template contents
-function getTemplateContents(races)
-	return {
-		zones = getZones(races),
-		connections = getConnections()
-	}
+function getTemplateContents(races, scenarioSize, parameters)
+    contents = {}
+    if parameters then
+        if parameters[1] then
+            diff = parameters[1] * 0.01
+        else
+            diff = 1
+        end
+        if parameters[2] and parameters[2] == 1 then
+            GO = true
+        else
+            GO = false
+        end
+        -- if parameters[3] and parameters[3] == 1 then
+        --     WATER = true
+        -- else
+        --     WATER = false
+        -- end
+    end
+    contents.scenarioVariables = templateVariables
+    contents.zones = getZones(races)
+    contents.connections = getConnections()
+
+    return contents
 end
 -- end
 ----------
 
 template = {
     --name = getName(TemplateName, Verison),
-    name = 'Freedom 2.1.2',
+    name = 'Freedom 2.2.1',
     description = getDescription(TemplateName, Verison, Timer),
     minSize = 72,
     maxSize = 72,
     maxPlayers = 2,
     roads = 50,
     forest = 35,
-    startingGold = 1250,
-    startingNativeMana = 300,
+    startingGold = 1000,
+    startingNativeMana = 250,
+    ----------
+    -- custom parameters
+    customParameters = {
+        {
+            name = "Difficulty",
+            unit = "%",
+            default = 100,
+            min = 80,
+            max = 150,
+            step = 10
+        },
+        {
+            name = "Start zone GO",
+            values = {
+                "Yes",
+                "No"
+            },
+            default = 2
+        },
+        -- {
+        --     name = "Water",
+        --     values = {
+        --         "Yes",
+        --         "No"
+        --     },
+        --     default = 2
+        -- },
+    },
+    -- end
+    ----------
+
     iterations = 10000,
     getContents = getTemplateContents,
     forbiddenSpells = {
