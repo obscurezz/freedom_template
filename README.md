@@ -1,5 +1,5 @@
 # Freedom
-### Current version: 2.2.1
+### Current version: 2.2.3
 RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 
 ### Zone placing:
