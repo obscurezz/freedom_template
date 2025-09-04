@@ -45,7 +45,9 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 
 > Bonus: artifact merchant in this zone also contains 3 permanent auras each of 700 value.
 
-> Bonus: both merchants in this zone also contain 2 high tier items
+> Bonus: both merchants in this zone also contain 2 high tier items.
+
+> Bonus: T5 town guard in this zone also contains *1 scroll of acceleration*.
 
 ### Pink-greengrass: central zone splits with town.
 #### Content:
@@ -77,19 +79,19 @@ RMG template for slasher MNS, generates a random map of 72x72 size for 1v1 game.
 ##### one of:
 - Leader Greenskin or Marsh: contains permanent potion, item value 450-650, total value 650
 - Leader Barbarian: contains permanent potion, item value 450-650, total value 650
-> Bonus: Also contains *1 scroll of speed*.
 
 ### From players' starting zones to central zone:
-- Leader Monster: contains artifact or talisman, item value 700-1000, total value 1000
+- Leader Monster: contains permanent, item value 1200-1300, total value 1300
 
 > This guard is optional and can be disabled.
+
+> Bonus: Also contains *1 scroll of acceleration*.
 
 ### From small side zones to central zone:
 - Leader Dragon: contains orb or talisman, item value 700-1000, total value 2000
 
 ### From small side zones to big corner zones:
 - Leader Dragon: contains artifact, item value 1000-1400, total value 1400
-> Bonus: Also contains *1 scroll of speed*.
 
 ### From big corner zones to central zone:
 - Leader Monster: contains relic, item value 700-1000, total value 1000
